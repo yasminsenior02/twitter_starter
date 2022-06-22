@@ -11,6 +11,8 @@ export default function Feed({ setTweets, userProfile, tweets }) {
         tweets={tweets}
         setTweets={setTweets}
         userProfile={userProfile}
+        tweetText={tweetText}
+        setTweetText={setTweetText}
       />
 
       <div className="see-new-tweets beet">
