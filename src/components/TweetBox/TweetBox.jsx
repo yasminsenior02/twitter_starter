@@ -2,7 +2,16 @@ import * as React from "react";
 import TweetInput from "./TweetInput";
 import "./TweetBox.css";
 
-export default function TweetBox({ setTweets, userProfile, tweets }) {
+export default function TweetBox({
+  setTweets,
+  userProfile,
+  tweets,
+  tweetText,
+  setTweetText,
+}) {
+  function handleOnTweetTextChange() {
+    setTweetText(tweetText.concat(textarea));
+  }
   function handleOnSubmit() {
     var newTweet = {
       id: tweets.length, // this shows the total length (how many) are in the array
@@ -17,7 +26,11 @@ export default function TweetBox({ setTweets, userProfile, tweets }) {
   }
   return (
     <div className="tweet-box">
-      <TweetInput />
+      <TweetInput
+        tweetText={tweetText}
+        setTweetText={setTweetText}
+        handleOnTweetTextChange={handleOnTweetTextChange}
+      />
 
       <div className="tweet-box-footer">
         <TweetBoxIcons />
