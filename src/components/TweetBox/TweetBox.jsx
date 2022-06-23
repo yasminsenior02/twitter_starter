@@ -9,27 +9,29 @@ export default function TweetBox({
   tweetText,
   setTweetText,
 }) {
-  function handleOnTweetTextChange() {
-    setTweetText(tweetText.concat(textarea));
+  function handleOnTweetTextChange(event) {
+    setTweetText(event.target.value);
   }
   function handleOnSubmit() {
     var newTweet = {
       id: tweets.length, // this shows the total length (how many) are in the array
       name: userProfile.name,
       handle: userProfile.handle,
-      text: " ",
+      text: tweetText,
       comments: 0,
       retweets: 0,
       likes: 0,
     };
     setTweets(tweets.concat(newTweet));
+    setTweetText(" ");
   }
   return (
     <div className="tweet-box">
       <TweetInput
-        tweetText={tweetText}
-        setTweetText={setTweetText}
-        handleOnTweetTextChange={handleOnTweetTextChange}
+        tweets={tweets}
+        value={tweetText}
+        // setTweetText={setTweetText}
+        handleOnChange={handleOnTweetTextChange}
       />
 
       <div className="tweet-box-footer">

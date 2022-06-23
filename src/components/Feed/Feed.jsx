@@ -3,7 +3,13 @@ import Tweet from "../Tweet/Tweet";
 import TweetBox from "../TweetBox/TweetBox";
 import "./Feed.css";
 
-export default function Feed({ setTweets, userProfile, tweets }) {
+export default function Feed({
+  setTweets,
+  userProfile,
+  tweets,
+  tweetText,
+  setTweetText,
+}) {
   return (
     <div className="col feed">
       {/* UPDATE TWEET BOX PROPS HERE */}
